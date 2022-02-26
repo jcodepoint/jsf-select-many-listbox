@@ -1,0 +1,54 @@
+<ui:composition template="../templates/master.xhtml"
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+	<ui:define name="content">
+		<div style="border-bottom: 1px solid #CCC;padding:10px">
+			<h:panelGrid columns="1" columnClasses="col-1" style="width:100%;">
+				<h:outputText value="JSF selectManyListbox Example" />
+			</h:panelGrid>
+		</div>
+		<div id="container">
+			<h:form id="customerForm">
+			
+				<p />
+				<h:outputText value="SelectManyCheckbox - Ejemplo:" styleClass="title" />
+				<p />
+
+				<h:panelGrid columns="1" styleClass="table-style" columnClasses="table-col-1,table-col-2">
+					<h:outputText value="Países" styleClass="title" />
+					
+					<h:selectManyListbox id="mlb-countries" value="#{bean.selectedCountries}">
+   						<f:selectItem itemValue="argentina" itemLabel="Argentina" />
+   						<f:selectItem itemValue="uruguay" itemLabel="Uruguay" />
+   						<f:selectItem itemValue="paraguay" itemLabel="Paraguay" />
+   						<f:selectItem itemValue="bolivia" itemLabel="Bolivia" />
+   						<f:selectItem itemValue="peru" itemLabel="Perú" />
+					</h:selectManyListbox>
+					
+					<p />
+					<h:outputText value="Ríos" styleClass="title" />
+					<p />
+					
+   					<h:selectManyListbox id="mlb-rivers" value="#{bean.selectedRivers}">
+   						<f:selectItems value="#{bean.rivers}" />
+					</h:selectManyListbox>
+
+					<p />
+					<h:outputText value="Lagos" styleClass="title" />
+					<p />
+					
+   					<h:selectManyListbox id="mlb-lakes" value="#{bean.selectedLakes}">
+   						<f:selectItems value="#{bean.lakes}" />
+					</h:selectManyListbox>
+
+				</h:panelGrid>
+				<h:panelGroup layout="block" style="text-align:center;">
+					<h:commandButton value="Aceptar" action="#{bean.aceptar()}" />
+				</h:panelGroup>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>

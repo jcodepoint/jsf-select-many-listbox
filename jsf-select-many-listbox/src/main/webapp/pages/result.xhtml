@@ -1,0 +1,27 @@
+<ui:composition template="../templates/master.xhtml"
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+	<ui:define name="content">
+		<div style="border-bottom: 1px solid #CCC;padding:10px">
+			<h:panelGrid columns="1" columnClasses="col-1" style="width:100%;">
+				<h:outputText value="JSF selectManyListbox Example" />
+			</h:panelGrid>
+		</div>
+		<div id="container">
+			<h:panelGroup>
+				<h:form> 
+					<h:outputText value="Países seleccionados: #{bean.selectedCountriesString}" />
+					<p />
+					<h:outputText value="Ríos seleccionados: #{bean.selectedRiversString}" />
+					<p />
+					<h:outputText value="Lagos seleccionados: #{bean.selectedLakesString}" />
+					<p />
+					<h:commandLink value="Volver" action="#{bean.volver()}" /> 
+				</h:form>
+			</h:panelGroup>
+		</div>
+	</ui:define>
+</ui:composition>
